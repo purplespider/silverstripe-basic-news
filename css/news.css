@@ -1,0 +1,42 @@
+.NewsArticle h1 {
+	margin-bottom: 5px !important;	
+	padding-bottom: 0 !important;
+}
+
+.NewsArticle p.date {
+	font-weight: bold;
+}
+
+.NewsArticle p.back {
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+.NewsHolder h2 {
+	margin-bottom: 0 !important;
+	border-bottom: none;
+}
+
+.NewsHolder p.date {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.NewsHolder a.more {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.NewsHolder .hr {
+	margin-bottom: 15px;
+	margin-top: 10px;
+	border-bottom: 1px solid gray;
+	clear: both;
+}
+
+.NewsHolder .pageNumbers {
+	border-top: 1px solid gray;
+	padding-top: 10px;
+	font-weight: bold;
+	margin-bottom: 0;
+}

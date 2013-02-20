@@ -1,0 +1,14 @@
+{
+	"name": "silverstripe/basic-news",
+	"description": "Basic News Holder & News Article functionality",
+	"type": "silverstripe-module",
+	"keywords": ["silverstripe", "news", "article"],
+		"authors": [{
+			"name": "James Cocker",
+			"email": "ssmodules@pswd.biz"
+	}],
+	"require": {
+		"silverstripe/framework": "3.*",
+		"silverstripe/cms": "3.*"
+	}
+}
