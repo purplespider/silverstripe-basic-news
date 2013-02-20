@@ -35,10 +35,10 @@ This module has been designed to have just the minimum required features, to avo
 
 **News Article Page**
 
-![Screenshot](http://spdr.me/Dt4g+) 
-![Screenshot](http://spdr.me/7Zyh+)
+![Screenshot](http://www.pswd.biz/ssmodules/basic-news/a1.png) 
+![Screenshot](http://www.pswd.biz/ssmodules/basic-news/a2.png)
 
 **News Holder Page**
 
-![Screenshot](http://spdr.me/HZX7+)
-![Screenshot](http://spdr.me/l6D5+)
+![Screenshot](http://www.pswd.biz/ssmodules/basic-news/b1.png)
+![Screenshot](http://www.pswd.biz/ssmodules/basic-news/b2.png)
