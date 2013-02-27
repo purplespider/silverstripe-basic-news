@@ -1,5 +1,5 @@
 {
-	"name": "silverstripe/basic-news",
+	"name": "purplespider/basic-news",
 	"description": "Basic News Holder & News Article functionality",
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "news", "article"],
@@ -10,5 +10,6 @@
 	"require": {
 		"silverstripe/framework": "3.*",
 		"silverstripe/cms": "3.*"
-	}
+	},
+	"replace": {"silverstripe/basic-news": "*"}
 }
