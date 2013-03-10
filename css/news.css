@@ -14,7 +14,7 @@
 
 .NewsHolder h2 {
 	margin-bottom: 0 !important;
-	border-bottom: none;
+	border-bottom: none !important;
 }
 
 .NewsHolder p.date {
@@ -23,7 +23,7 @@
 }
 
 .NewsHolder a.more {
-	font-weight: bold;
+	font-weight: bold !important;
 	text-decoration: underline;
 }
 
@@ -31,7 +31,6 @@
 	margin-bottom: 15px;
 	margin-top: 10px;
 	border-bottom: 1px solid gray;
-	clear: both;
 }
 
 .NewsHolder .pageNumbers {
