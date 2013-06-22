@@ -8,7 +8,7 @@ class NewsHolder extends Page {
 		$fields->addFieldToTab(
 			'Root.Main',
 			new LiteralField("addnew",
-				"<p><a href='/admin/pages/add/AddForm?action_doAdd=1&ParentID=".$this->ID."&PageType=NewsArticle&SecurityID=".SecurityToken::getSecurityID()."' class='ss-ui-button ss-ui-action-constructive ui-button' style='font-size:130%' data-icon=add''>Add New News Item</span></a></p>"),'Title');
+				"<p><a href='/admin/pages/add/AddForm?action_doAdd=1&ParentID=".$this->ID."&PageType=NewsArticle&SecurityID=".SecurityToken::getSecurityID()."' class='ss-ui-button ss-ui-action-constructive ui-button' style='font-size:130%' data-icon=add''>New News Article</span></a></p>"),'Title');
 						
 		$fields->renameField("Content","Introductory Text");
 				
