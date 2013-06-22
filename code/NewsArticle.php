@@ -2,11 +2,11 @@
 
 	class NewsArticle extends Page {
 	
-		static $db = array(
+		private static $db = array(
 			'Date' => 'Date'
 		);
 		
-		static $has_one = array(
+		private static $has_one = array(
 			'AttachedImage' => 'Image'
 		);
 		

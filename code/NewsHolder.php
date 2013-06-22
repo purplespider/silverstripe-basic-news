@@ -16,9 +16,9 @@ class NewsHolder extends Page {
 	}
 	
 	// Only allows certain children to be created
-	static $allowed_children = array('NewsArticle');
-	static $description = 'Holds News Article pages';	   		   
-   	static $icon = "basic-news/images/newspaper-page";
+	private static $allowed_children = array('NewsArticle');
+	private static $description = 'Holds News Article pages';	   		   
+   	private static $icon = "basic-news/images/newspaper-page";
 }
 
 

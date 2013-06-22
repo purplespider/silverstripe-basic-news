@@ -6,18 +6,18 @@ $Content
 	
 	<% if PaginatedPages %>
 		
-		<% control PaginatedPages %>
+		<% loop PaginatedPages %>
 			<div class="hr"></div>
 			<% if AttachedImage %>
 				<a href="$Link">
-					<% control AttachedImage.setWidth(150) %><img class="right" src="$URL" width="$Width" height="$Height" /><% end_control %>
+					<% loop AttachedImage.setWidth(150) %><img class="right" src="$URL" width="$Width" height="$Height" /><% end_loop %>
 				</a>
 			<% end_if %>
 			<h2><a href="$Link">$Title</a></h2>
 			<p class="date">$Date.Long</p>
 			<p class="summary">$Content.Summary <a class="more" href="$Link">Read&nbsp;more</a></p>
 			
-		<% end_control %>
+		<% end_loop %>
 		
 		<% if PaginatedPages.MoreThanOnePage %>
 				<p class="pageNumbers">

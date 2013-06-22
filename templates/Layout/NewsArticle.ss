@@ -5,7 +5,7 @@
 	
 	<% if AttachedImage %>
 		<% if AttachedImage.WidthGT(250) %><a href="$ArticleImageSized(900).URL" class="lightbox"><% end_if %>
-			<% control AttachedImage.setMaxWidth(250) %><img class="right" src="$URL" width="$Width" height="$Height" /><% end_control %>
+			<% loop AttachedImage.setMaxWidth(250) %><img class="right" src="$URL" width="$Width" height="$Height" /><% end_loop %>
 		<% if AttachedImage.WidthGT(250) %></a><% end_if %>
 	<% end_if %>
 	
