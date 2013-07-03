@@ -15,7 +15,7 @@ $Content
 			<% end_if %>
 			<h2><a href="$Link">$Title</a></h2>
 			<p class="date">$Date.Long</p>
-			<p class="summary">$Content.Summary <a class="more" href="$Link">Read&nbsp;more</a></p>
+			<% if Content.Summary %><p class="summary">$Content.Summary <a class="more" href="$Link">Read&nbsp;more</a></p><% end_if %>
 			
 		<% end_loop %>
 		
