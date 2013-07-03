@@ -43,7 +43,9 @@
 			$datefield->setConfig('dateformat', 'dd/MM/YYYY');
 			
 			$fields->addFieldToTab('Root.Main', $datefield, 'Content');
-			$fields->addFieldToTab('Root.Main', $image = new UploadField('AttachedImage','Image (Optional)'),"Content");	
+			
+			$fields->addFieldToTab('Root.Main', $image = new UploadField('AttachedImage','Main Image'),"Content");	
+			$image->setRightTitle("Displayed to the right of the content in the main article, where it can be clicked to enlarge. <br />A thumbnail also appears next to the article summary on the main News page.");
 			
 			$image->setFolderName("Managed/NewsImages");	
 		
