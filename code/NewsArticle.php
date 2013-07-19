@@ -44,11 +44,13 @@
 			
 			$fields->addFieldToTab('Root.Main', $datefield, 'Content');
 			
-			$fields->addFieldToTab('Root.Main', $image = new UploadField('AttachedImage','Main Image'),"Content");	
+			$image = new UploadField('AttachedImage', 'Main Image');
+			$image->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
+			$image->setConfig('allowedMaxFileNumber', 1);
+			$image->setFolderName('Managed/NewsImages');
 			$image->setRightTitle("Displayed to the right of the content in the main article, where it can be clicked to enlarge. <br />A thumbnail also appears next to the article summary on the main News page.");
-			
-			$image->setFolderName("Managed/NewsImages");	
-		
+			$fields->addFieldToTab('Root.Main', $image,"Content");	
+					
 	    	return $fields;
 	   }
 	   
