@@ -25,11 +25,20 @@ class NewsHolder extends Page {
    	public function stageChildren($showAll = false) { 
    		return $this->__call('stageChildren', array($showAll))->sort(array('MenuTitle'=>'DESC',"Created"=>'DESC')); 
    	}
+
+   	public function init() {
+   		RSSFeed::linkToFeed($this->Link("rss"), "News RSS Feed");
+        parent::init();
+   	}
    	
 }
 
 
 class NewsHolder_Controller extends Page_Controller {
+
+	private static $allowed_actions = array(
+		"rss"
+	);
 
 	function init() {
   		RSSFeed::linkToFeed($this->Link() . "rss");	
@@ -42,11 +51,18 @@ class NewsHolder_Controller extends Page_Controller {
    		parent::init();	
 	}
 	
-	// Provides News Article RSS Feed
-	function rss() {
-  		$rss = new RSSFeed(DataObject::get("NewsArticle", null, "Date DESC"), $this->Link(), "Latest News");
-  		$rss->outputToBrowser();
-	}
+	public function rss() {
+		$config = SiteConfig::current_site_config(); 
+        // Creates a new RSS Feed list
+        $rss = new RSSFeed(
+            $list = NewsArticle::get(), // an SS_List containing your feed items
+            $link = $this->Link("rss"), // a HTTP link to this feed
+            $title = $config->Title . " News", // title for this feed, displayed in RSS readers
+            $description = "All the latest news from ". $config->Title . "." // description
+        );
+        // Outputs the RSS feed to the user.
+        return $rss->outputToBrowser();
+    }
 	
 	// Provides Paginated List of NewsArticles
 	function PaginatedPages() {
