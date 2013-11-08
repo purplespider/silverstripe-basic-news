@@ -2,21 +2,30 @@
 
 class NewsHolder extends Page {
 
-	function getCMSFields() {
+	public function getCMSFields() {
+
+		$intro = null;
+
+		$this->beforeUpdateCMSFields(function($fields) {
+
+			$fields->addFieldToTab("Root.IntroText", $intro = new HTMLEditorField("Content","Introductory Text"));
+
+		});
+
 		$fields = parent::getCMSFields();
-		
+
 		$fields->addFieldToTab(
-			'Root.Main',
-			new LiteralField("addnew",
-				"<p><a href='/admin/pages/add/AddForm?action_doAdd=1&ParentID=".$this->ID."&PageType=NewsArticle&SecurityID=".SecurityToken::getSecurityID()."' class='ss-ui-button ss-ui-action-constructive ui-button' style='font-size:130%' data-icon=add''>New News Article</span></a></p>"),'Title');
-						
-		// $fields->renameField("Content","Introductory Text");
-		$fields->addFieldToTab("Root.IntroText", $intro = new HTMLEditorField("Content","Introductory Text"));
-		$intro->setRightTitle("Appears at the top of the main ".$this->Title." page, above the list of articles.");
-				
+				'Root.Main',
+				new LiteralField("addnew",
+					"<p><a href='/admin/pages/add/AddForm?action_doAdd=1&ParentID=".$this->ID."&PageType=NewsArticle&SecurityID=".SecurityToken::getSecurityID()."' class='ss-ui-button ss-ui-action-constructive ui-button' style='font-size:130%' data-icon=add''>New News Article</span></a></p>"),'Title');
+		
+		if ($intro) {
+			$intro->setRightTitle("Appears at the top of the main ".$this->Title." page, above the list of articles.");
+		}
+
 		return $fields;
 	}
-	
+
 	// Only allows certain children to be created
 	private static $allowed_children = array('NewsArticle');
 	private static $description = 'Holds News Article pages';	   		   
