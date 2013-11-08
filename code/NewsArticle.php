@@ -31,26 +31,31 @@
   			parent::populateDefaults();
 		}
 					
-		function getCMSFields() {
-	    	$fields = parent::getCMSFields();
-	    	
-	    	$fields->renameField("Title", "Headline");
-	    	$fields->removeFieldFromTab("Root.Main","MenuTitle");
-	    	
-	    	$datefield = new DateField('Date','Date (DD/MM/YYYY)');
-			$datefield->setConfig('showcalendar', true);
-			$datefield->setConfig('showdropdown', true);
-			$datefield->setConfig('dateformat', 'dd/MM/YYYY');
+		public function getCMSFields() {
+
+	    	$this->beforeUpdateCMSFields(function($fields) {
+
+		    	$datefield = new DateField('Date','Date (DD/MM/YYYY)');
+				$datefield->setConfig('showcalendar', true);
+				$datefield->setConfig('showdropdown', true);
+				$datefield->setConfig('dateformat', 'dd/MM/YYYY');
+				
+				$fields->addFieldToTab('Root.Main', $datefield, 'Content');
+				
+				$image = new UploadField('AttachedImage', 'Main Image');
+				$image->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
+				$image->setConfig('allowedMaxFileNumber', 1);
+				$image->setFolderName('Managed/NewsImages');
+				$image->setRightTitle("Displayed to the right of the content in the main article, where it can be clicked to enlarge. <br />A thumbnail also appears next to the article summary on the main News page.");
+				$fields->addFieldToTab('Root.Main', $image,"Content");	
+
+			 });
+
+			$fields = parent::getCMSFields();
 			
-			$fields->addFieldToTab('Root.Main', $datefield, 'Content');
-			
-			$image = new UploadField('AttachedImage', 'Main Image');
-			$image->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
-			$image->setConfig('allowedMaxFileNumber', 1);
-			$image->setFolderName('Managed/NewsImages');
-			$image->setRightTitle("Displayed to the right of the content in the main article, where it can be clicked to enlarge. <br />A thumbnail also appears next to the article summary on the main News page.");
-			$fields->addFieldToTab('Root.Main', $image,"Content");	
-					
+			$fields->renameField("Title", "Headline");
+		    $fields->removeFieldFromTab("Root.Main","MenuTitle");
+
 	    	return $fields;
 	   }
 	   
