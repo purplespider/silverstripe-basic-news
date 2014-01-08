@@ -46,6 +46,7 @@
 				$image->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
 				$image->setConfig('allowedMaxFileNumber', 1);
 				$image->setFolderName('Managed/NewsImages');
+				$image->setCanPreviewFolder(false);
 				$image->setRightTitle("Displayed to the right of the content in the main article, where it can be clicked to enlarge. <br />A thumbnail also appears next to the article summary on the main News page.");
 				$fields->addFieldToTab('Root.Main', $image,"Content");	
 
