@@ -1,6 +1,6 @@
 .NewsArticle h1 {
-	margin-bottom: 5px !important;	
-	padding-bottom: 0 !important;
+	margin-bottom: 5px;	
+	padding-bottom: 0;
 }
 
 .NewsArticle p.date {
@@ -13,8 +13,8 @@
 }
 
 .NewsHolder h2 {
-	margin-bottom: 0 !important;
-	border-bottom: none !important;
+	margin-bottom: 0;
+	border-bottom: none;
 }
 
 .NewsHolder p.date {
@@ -23,7 +23,7 @@
 }
 
 .NewsHolder a.more {
-	font-weight: bold !important;
+	font-weight: bold;
 	text-decoration: underline;
 }
 
