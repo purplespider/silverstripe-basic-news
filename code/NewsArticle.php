@@ -25,6 +25,8 @@
 		static $singular_name = 'News Article';
 		static $plural_name = 'News Articles'; 
 		static $icon = "basic-news/images/newspaper";
+		static $allowed_children = array();
+		static $can_be_root = false;
 		
 		public function populateDefaults() {
   			$this->Date = date('Y-m-d');

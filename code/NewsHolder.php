@@ -7,18 +7,12 @@ class NewsHolder extends Page {
 		$intro = null;
 
 		$this->beforeUpdateCMSFields(function($fields) {
-
-			$fields->addFieldToTab("Root.IntroText", $intro = new HTMLEditorField("Content","Introductory Text"));
-
+			$fields->renameField("Content", "Intro Content");
+      $fields->insertBefore(new Tab($this->getLumberjackTitle()), 'Main');
 		});
 
 		$fields = parent::getCMSFields();
 
-		$fields->addFieldToTab(
-				'Root.Main',
-				new LiteralField("addnew",
-					"<p><a href='/admin/pages/add/AddForm?action_doAdd=1&ParentID=".$this->ID."&PageType=NewsArticle&SecurityID=".SecurityToken::getSecurityID()."' class='ss-ui-button ss-ui-action-constructive ui-button' style='font-size:130%' data-icon=add''>New News Article</span></a></p>"),'Title');
-		
 		if ($intro) {
 			$intro->setRightTitle("Appears at the top of the main ".$this->Title." page, above the list of articles.");
 		}
@@ -26,9 +20,13 @@ class NewsHolder extends Page {
 		return $fields;
 	}
 
+    public function getLumberjackTitle() {
+        return "News Articles";
+    }
+
 	// Only allows certain children to be created
 	private static $allowed_children = array('NewsArticle');
-	private static $description = 'Holds News Article pages';	   		   
+	private static $description = 'Holds News Article pages';
    	private static $icon = "basic-news/images/newspaper-page";
    	
    	public function stageChildren($showAll = false) { 

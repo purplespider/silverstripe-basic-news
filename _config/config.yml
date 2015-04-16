@@ -1,0 +1,7 @@
+NewsHolder:
+  extensions:
+    - 'Lumberjack'
+  child_classname: NewsArticle
+
+NewsArticle:
+  show_in_sitetree: false
