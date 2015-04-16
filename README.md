@@ -8,6 +8,28 @@ Designed to provide a simple, fool-proof way for users to add news articles to t
 
 This module has been designed to have just the minimum required features, to avoid bloat, but can be easily extended to add new fields if required.
 
+## IMPORTANT ##
+
+The master branch has been updated to require [micmania1's Lumberjack module](https://github.com/micmania1/silverstripe-lumberjack), which moves the list of news articles from the sitetree to a gridfield. 
+
+However, there are a couple of tweaks required to Lumberjack in order for the best "News" experience. I've opened pull requests, but until they are accepted you can use my Lumberjack fork:
+
+Just add the following to your composer.json file:
+````
+"repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/purplespider/silverstripe-lumberjack"
+        }
+    ]
+````
+
+And to `require` add:
+`"micmania1/silverstripe-lumberjack": "1.0.1a"`
+
+If you don't wish to use this version, you can use the basic-news version 1.0.0 which doesn't use Lumberjack:
+`"purplespider/basic-news": "1.0.*"`
+
 ## Maintainer Contact ##
  * James Cocker (ssmodulesgithub@pswd.biz)
  
