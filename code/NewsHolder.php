@@ -73,7 +73,7 @@ class NewsHolder_Controller extends Page_Controller {
 	
 	// Provides Paginated List of NewsArticles
 	function PaginatedPages() {
-		$list = new PaginatedList(NewsArticle::get(), $this->request);
+		$list = new PaginatedList(NewsArticle::get()->filter("ParentID",$this->ID), $this->request);
 		$list->setPageLength(10);
 		return $list;
 	}
