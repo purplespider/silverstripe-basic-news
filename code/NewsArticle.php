@@ -71,6 +71,11 @@
 			if ($this->Parent()->ClassName != "NewsHolder") {
 				$this->ParentID = NewsHolder::get()->first()->ID;
 			}		
+
+			// Add Today's Date if None
+			if (!$this->Date) {
+				$this->Date = date('Y-m-d');
+			}
 						
 			parent::onBeforeWrite();
 		}	
