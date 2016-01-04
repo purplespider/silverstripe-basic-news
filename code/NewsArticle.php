@@ -40,7 +40,7 @@
 		    	$datefield = new DateField('Date','Date (DD/MM/YYYY)');
 				$datefield->setConfig('showcalendar', true);
 				$datefield->setConfig('showdropdown', true);
-				$datefield->setConfig('dateformat', 'dd/MM/YYYY');
+				$datefield->setConfig('dateformat', 'dd/MM/yyyy');
 				
 				$fields->addFieldToTab('Root.Main', $datefield, 'Content');
 				
