@@ -1,4 +1,5 @@
 # Basic News Module
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/purplespider/silverstripe-basic-news/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/purplespider/silverstripe-basic-news/?branch=master)
 
 ## Introduction
 
