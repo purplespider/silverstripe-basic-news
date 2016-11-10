@@ -9,7 +9,6 @@ class NewsHolder extends Page
 
         $this->beforeUpdateCMSFields(function ($fields) {
             $fields->renameField("Content", "Intro Content");
-      $fields->insertBefore(new Tab($this->getLumberjackTitle()), 'Main');
         });
 
         $fields = parent::getCMSFields();
