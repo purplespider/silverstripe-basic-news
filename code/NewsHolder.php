@@ -25,6 +25,14 @@ class NewsHolder extends Page
     {
         return "News Articles";
     }
+    
+    public function getLumberjackPagesForGridfield($excluded = array())
+  	{
+  			return NewsArticle::get()->filter(array(
+  					'ParentID' => $this->ID,
+  					'ClassName' => $excluded,
+  			));
+  	}
 
     // Only allows certain children to be created
     private static $allowed_children = array('NewsArticle');

@@ -1,7 +1,5 @@
 NewsHolder:
   extensions:
-    - 'Lumberjack'
-  child_classname: NewsArticle
-
+    - 'CustomLumberjack'
 NewsArticle:
   show_in_sitetree: false
