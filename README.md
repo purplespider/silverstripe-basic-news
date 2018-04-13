@@ -13,7 +13,8 @@ This module has been designed to have just the minimum required features, to avo
  * James Cocker (ssmodulesgithub@pswd.biz)
  
 ## Requirements
- * Silverstripe 3.1+
+ * Silverstripe 4.1+
+ * Use the 3.1 branch for SilverStripe 3.1 support
  
 ## Installation Instructions
 
@@ -25,9 +26,9 @@ This module has been designed to have just the minimum required features, to avo
 
 * A News Article has a Headline, Date, Article & Image (optional)
 * *Add New News Article* button on Holder CMS page.
-* Articles listed on holder page, with summary, date, image
+* Articles listed on holder page, with date and title
 * News Articles are automatically moved to a News Holder if created elsewhere in the sitetree accidentally.
-* Lightbox compatability
+* Lightbox compatibility
 * RSS feed of articles
 * Articles are paginated on the News Holder
 

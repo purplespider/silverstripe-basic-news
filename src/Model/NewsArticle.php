@@ -1,33 +1,53 @@
 <?php
 
+namespace PurpleSpider\BasicNews;
+
+use Page;
+
+
+
+
+
+use SilverStripe\Assets\Image;
+use SilverStripe\ORM\FieldType\DBDate;
+use SilverStripe\Forms\DateField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use PurpleSpider\BasicNews\NewsHolder;
+use SilverStripe\Control\Director;
+use SilverStripe\View\Requirements;
+use PageController;
+
+
+
     class NewsArticle extends Page
     {
     
         private static $db = array(
-            'Date' => 'Date'
+            'Date' => DBDate::class
         );
         
         private static $has_one = array(
-            'AttachedImage' => 'Image'
+            'AttachedImage' => Image::class
         );
         
-        public static $defaults = array(
+        private static $defaults = array(
             'ShowInMenus' => false
         );
         
-        public static $summary_fields = array(
-            "Date" => "Date",
+        private static $summary_fields = array(
+            "Date.Nice" => "Date",
             "Title" => "Title"
         );
         
-        public static $default_sort = "Date DESC, Created DESC";
-        public static $default_parent = "news";
-        public static $description = 'An individual news item displayed on a News holder page';
-        public static $singular_name = 'News Article';
-        public static $plural_name = 'News Articles';
-        public static $icon = "basic-news/images/newspaper";
-        public static $allowed_children = array();
-        public static $can_be_root = false;
+        private static $default_sort = "Date DESC, Created DESC";
+        private static $default_parent = "news";
+        private static $description = 'An individual news item displayed on a News holder page';
+        private static $singular_name = 'News Article';
+        private static $plural_name = 'News Articles';
+        private static $icon = "purplespider/basic-news:client/dist/images/newspaper-file.gif";
+        private static $allowed_children = array();
+        private static $can_be_root = false;
+        private static $table_name = "NewsArticle";
         
         public function populateDefaults()
         {
@@ -39,19 +59,19 @@
         {
             $this->beforeUpdateCMSFields(function ($fields) {
 
-                $datefield = new DateField('Date', 'Date (DD/MM/YYYY)');
-                $datefield->setConfig('showcalendar', true);
-                $datefield->setConfig('showdropdown', true);
-                $datefield->setConfig('dateformat', 'dd/MM/yyyy');
+                $datefield = new DateField('Date', 'Article Date');
+                // $datefield->setConfig('showcalendar', true);
+                // $datefield->setConfig('showdropdown', true);
+                // $datefield->setConfig('dateformat', 'dd/MM/yyyy');
                 
                 $fields->addFieldToTab('Root.Main', $datefield, 'Content');
                 
-                $image = new UploadField('AttachedImage', 'Main Image');
+                $image = new UploadField('AttachedImage', 'Featured Image');
                 $image->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
-                $image->setConfig('allowedMaxFileNumber', 1);
+                // $image->setConfig('allowedMaxFileNumber', 1);
                 $image->setFolderName('Managed/NewsImages');
-                $image->setCanPreviewFolder(false);
-                $image->setRightTitle("Displayed to the right of the content in the main article, where it can be clicked to enlarge. <br />A thumbnail also appears next to the article summary on the main News page.");
+                // $image->setCanPreviewFolder(false);
+                $image->setDescription("Displayed to the right of the content in the main article, where it can be clicked to enlarge. <br />A thumbnail also appears next to the article summary on the main News page.");
                 $fields->addFieldToTab('Root.Main', $image, "Content");
 
              });
@@ -71,7 +91,7 @@
             $this->MenuTitle = $this->Date.": ".$this->Title;
             
             // Move to News holder if created under something else
-            if ($this->Parent()->ClassName != "NewsHolder") {
+            if ($this->Parent()->ClassName != "PurpleSpider\BasicNews\NewsHolder") {
                 $this->ParentID = NewsHolder::get()->first()->ID;
             }
 
@@ -85,18 +105,9 @@
     }
     
     
-    class NewsArticle_Controller extends Page_Controller
+    class NewsArticle_Controller extends PageController
     {
-        
-        public function init()
-        {
-            if (Director::fileExists(project() . "/css/news.css")) {
-                Requirements::css(project() . "/css/news.css");
-            } else {
-                Requirements::css("basic-news/css/news.css");
-            }
-            parent::init();
-        }
+      
        
        // Provides a resized image with the max width provided
        public function ArticleImageSized($maxwidth = 250)

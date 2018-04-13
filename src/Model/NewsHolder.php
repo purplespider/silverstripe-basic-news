@@ -1,21 +1,30 @@
 <?php
 
+namespace PurpleSpider\BasicNews;
+
+use Page;
+use PurpleSpider\BasicNews\NewsArticle;
+use SilverStripe\Control\RSS\RSSFeed;
+use SilverStripe\Control\Director;
+use SilverStripe\View\Requirements;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\ORM\PaginatedList;
+use PageController;
+use SilverStripe\Forms\Tab;
+
 class NewsHolder extends Page
 {
 
     public function getCMSFields()
     {
-        $intro = null;
 
         $this->beforeUpdateCMSFields(function ($fields) {
             $fields->renameField("Content", "Intro Content");
         });
 
         $fields = parent::getCMSFields();
-
-        if ($intro) {
-            $intro->setRightTitle("Appears at the top of the main ".$this->Title." page, above the list of articles.");
-        }
+        
+        $fields->dataFieldByName("Content")->setDescription("This content appears at the top of the main ".$this->Title." page, above the list of news articles.");
 
         return $fields;
     }
@@ -34,9 +43,9 @@ class NewsHolder extends Page
   	}
 
     // Only allows certain children to be created
-    private static $allowed_children = array('NewsArticle');
+    private static $allowed_children = array(NewsArticle::class);
     private static $description = 'Holds News Article pages';
-    private static $icon = "basic-news/images/newspaper-page";
+    private static $icon = "purplespider/basic-news:client/dist/images/newspaper-page-file.gif";
     
     public function stageChildren($showAll = false)
     {
@@ -51,24 +60,12 @@ class NewsHolder extends Page
 }
 
 
-class NewsHolder_Controller extends Page_Controller
+class NewsHolder_Controller extends PageController
 {
 
     private static $allowed_actions = array(
         "rss"
     );
-
-    public function init()
-    {
-        RSSFeed::linkToFeed($this->Link() . "rss");
-        if (Director::fileExists(project() . "/css/news.css")) {
-            Requirements::css(project() . "/css/news.css");
-        } else {
-            Requirements::css("basic-news/css/news.css");
-        }
-
-        parent::init();
-    }
     
     public function rss()
     {

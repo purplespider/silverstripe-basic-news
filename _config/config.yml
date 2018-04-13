@@ -1,5 +1,5 @@
-NewsHolder:
+PurpleSpider\BasicNews\NewsHolder:
   extensions:
-    - 'CustomLumberjack'
-NewsArticle:
+    - PurpleSpider\BasicNews\CustomLumberjack
+PurpleSpider\BasicNews\NewsArticle:
   show_in_sitetree: false

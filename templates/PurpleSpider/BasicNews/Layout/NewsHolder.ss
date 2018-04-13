@@ -1,3 +1,6 @@
+<% require css("purplespider/basic-news: client/dist/css/basic-news.css") %>
+
+
 <h1>$Title</h1>
 
 $Content
@@ -10,7 +13,7 @@ $Content
 			<div class="hr"></div>
 			<% if AttachedImage %>
 				<a href="$Link">
-					<% loop AttachedImage.setWidth(150) %><img class="right" src="$URL" width="$Width" height="$Height" alt="$Title" /><% end_loop %>
+					<% loop AttachedImage.ScaleMaxWidth(150) %><img class="right" src="$URL" width="$Width" height="$Height" alt="$Title" /><% end_loop %>
 				</a>
 			<% end_if %>
 			<h2><a href="$Link">$Title</a></h2>
