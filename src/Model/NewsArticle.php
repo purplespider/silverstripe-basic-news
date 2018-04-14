@@ -60,17 +60,11 @@ use PageController;
             $this->beforeUpdateCMSFields(function ($fields) {
 
                 $datefield = new DateField('Date', 'Article Date');
-                // $datefield->setConfig('showcalendar', true);
-                // $datefield->setConfig('showdropdown', true);
-                // $datefield->setConfig('dateformat', 'dd/MM/yyyy');
-                
                 $fields->addFieldToTab('Root.Main', $datefield, 'Content');
                 
-                $image = new UploadField('AttachedImage', 'Featured Image');
-                $image->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
-                // $image->setConfig('allowedMaxFileNumber', 1);
+                $image = UploadField::create('AttachedImage', 'Featured Image');
+                $image->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
                 $image->setFolderName('Managed/NewsImages');
-                // $image->setCanPreviewFolder(false);
                 $image->setDescription("Displayed to the right of the content in the main article, where it can be clicked to enlarge. <br />A thumbnail also appears next to the article summary on the main News page.");
                 $fields->addFieldToTab('Root.Main', $image, "Content");
 
