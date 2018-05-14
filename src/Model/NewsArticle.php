@@ -39,6 +39,10 @@ use PageController;
             "Title" => "Title"
         );
         
+        private static $owns = [
+          "AttachedImage"
+        ];
+        
         private static $default_sort = "Date DESC, Created DESC";
         private static $default_parent = "news";
         private static $description = 'An individual news item displayed on a News holder page';
