@@ -11,14 +11,19 @@ $Content
 		
 		<% loop PaginatedPages %>
 			<div class="hr"></div>
-			<% if AttachedImage %>
+			<% if AttachedImage && not Top.DisplayFullPosts %>
 				<a href="$Link">
 					<% loop AttachedImage.ScaleMaxWidth(150) %><img class="right" src="$URL" width="$Width" height="$Height" alt="$Title" /><% end_loop %>
 				</a>
 			<% end_if %>
 			<h2><a href="$Link">$Title</a></h2>
 			<p class="date">$Date.Long</p>
-			<% if Content.Summary %><p class="summary">$Content.Summary <a class="more" href="$Link">Read&nbsp;more</a></p><% end_if %>
+			<% if $Top.DisplayFullPosts %>
+				<% include PurpleSpider/BasicNews/AttachedImage %>
+				$Content
+			<% else %>
+				<% if Content.Summary %><p class="summary">$Content.Summary <a class="more" href="$Link">Read&nbsp;more</a></p><% end_if %>
+			<% end_if %>
 			
 		<% end_loop %>
 		

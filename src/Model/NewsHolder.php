@@ -11,9 +11,15 @@ use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\ORM\PaginatedList;
 use PageController;
 use SilverStripe\Forms\Tab;
+use SilverStripe\Forms\FieldGroup;
+use SilverStripe\Forms\CheckboxField;
 
 class NewsHolder extends Page
 {
+  
+    private static $db = array(
+      "DisplayFullPosts" => "Boolean"
+    );
 
     public function getCMSFields()
     {
@@ -26,6 +32,12 @@ class NewsHolder extends Page
         
         $fields->dataFieldByName("Content")->setDescription("This content appears at the top of the main ".$this->Title." page, above the list of news articles.");
 
+        return $fields;
+    }
+    
+    function getSettingsFields() {
+        $fields = parent::getSettingsFields();
+        $fields->addFieldToTab("Root.Settings", FieldGroup::create(CheckboxField::create('DisplayFullPosts', 'Display full articles?'))->setTitle("News Articles")); 
         return $fields;
     }
 
@@ -44,8 +56,10 @@ class NewsHolder extends Page
 
     // Only allows certain children to be created
     private static $allowed_children = array(NewsArticle::class);
-    private static $description = 'Holds News Article pages';
     private static $icon = "purplespider/basic-news:client/dist/images/newspaper-page-file.gif";
+    private static $table_name = "NewsHolder";
+    private static $description = 'Displays multiple News Articles';
+    
     
     public function stageChildren($showAll = false)
     {
