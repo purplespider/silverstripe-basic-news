@@ -22,6 +22,8 @@ This module has been designed to have just the minimum required features, to avo
 2. Visit yoursite.com/dev/build to rebuild the database.
 3. Log in the CMS, and create a new News Holder page.
 
+If you'd like to have Facebook OG and Twitter Card support, just add `	<% include PurpleSpider\BasicNews\MetaTags %>` to your site's `head`.
+
 ## Features
 
 * A News Article has a Headline, Date, Article & Image (optional)
