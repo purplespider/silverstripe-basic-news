@@ -15,7 +15,7 @@
 	"require": {
 		"silverstripe/framework": "~3.1",
 		"silverstripe/cms": "~3.1",
-		"silverstripe/lumberjack": "dev-1.3"
+		"silverstripe/lumberjack": "1.3.x-dev"
 	},
 	"replace": {"silverstripe/basic-news": "*"}
 }
