@@ -21,6 +21,9 @@ class NewsHolder extends Page
       "DisplayFullPosts" => "Boolean"
     );
 
+    private static $icon_class = 'font-icon-news';
+
+
     public function getCMSFields()
     {
 

@@ -49,6 +49,7 @@ use PageController;
         private static $singular_name = 'News Article';
         private static $plural_name = 'News Articles';
         private static $icon = "purplespider/basic-news:client/dist/images/newspaper-file.gif";
+        private static $icon_class = 'font-icon-p-news-item';
         private static $allowed_children = array();
         private static $can_be_root = false;
         private static $table_name = "NewsArticle";
