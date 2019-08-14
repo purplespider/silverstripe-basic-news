@@ -21,9 +21,6 @@ class NewsHolder extends Page
       "DisplayFullPosts" => "Boolean"
     );
 
-    private static $icon_class = 'font-icon-news';
-
-
     public function getCMSFields()
     {
 
@@ -59,7 +56,7 @@ class NewsHolder extends Page
 
     // Only allows certain children to be created
     private static $allowed_children = array(NewsArticle::class);
-    private static $icon = "purplespider/basic-news:client/dist/images/newspaper-page-file.gif";
+    private static $icon_class = 'font-icon-news';
     private static $table_name = "NewsHolder";
     private static $description = 'Displays multiple News Articles';
     
