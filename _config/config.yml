@@ -3,3 +3,6 @@ PurpleSpider\BasicNews\NewsHolder:
     - PurpleSpider\BasicNews\CustomLumberjack
 PurpleSpider\BasicNews\NewsArticle:
   show_in_sitetree: false
+SilverStripe\Admin\LeftAndMain:
+  extra_requirements_css: 
+    - 'vendor/purplespider/basic-news/client/dist/cms-tweaks.css'

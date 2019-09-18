@@ -1,0 +1,9 @@
+/* Hides unnecessary "Too many pages (show as list)" item in site tree */
+.cms-tree .class-PurpleSpider_BasicNews_NewsHolder li.readonly {
+	display: none;
+}
+
+/* Hides unnecessary "show child pages" arrow icon in site tree */
+.cms-tree .class-PurpleSpider_BasicNews_NewsHolder .font-icon-right-dir:before {
+	visibility: hidden;
+}
