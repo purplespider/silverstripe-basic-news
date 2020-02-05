@@ -87,10 +87,12 @@ use PageController;
             
             // Change MenuTitle, so date appears in CMS SiteTree
             $this->MenuTitle = $this->Date.": ".$this->Title;
-            
+
             // Move to News holder if created under something else
             if ($this->Parent()->ClassName != "PurpleSpider\BasicNews\NewsHolder") {
-                $this->ParentID = NewsHolder::get()->first()->ID;
+                if (NewsHolder::get()->first()) {
+                    $this->ParentID = NewsHolder::get()->first()->ID;
+                }
             }
 
             // Add Today's Date if None
