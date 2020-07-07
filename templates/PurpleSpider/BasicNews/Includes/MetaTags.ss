@@ -7,7 +7,6 @@
   <meta property="og:description" content="$Content.LimitCharacters(200,'...')">
   <meta property="og:site_name" content="$SiteConfig.Title">
   <meta property="og:locale" content="$Top.ContentLocale">
-  <!-- Next tags are optional but recommended -->
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 

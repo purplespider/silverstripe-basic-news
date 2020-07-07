@@ -9,7 +9,7 @@
 	 "datePublished": "$Date",
 	 "dateCreated": "$Created",
 	 "dateModified": "$LastEdited",
-	 "articleBody": "$Content",
+	 "articleBody": "$Content.Plain",
 	 "publisher": 
 		 {
 			 "@type": "Organization",
