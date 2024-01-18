@@ -35,9 +35,9 @@ class CustomLumberjack extends Lumberjack {
 			// $fields->insertAfter($tab, 'Main');
 			
 			if (SiteTree::get()->filter('ParentID',$this->owner->ID)->count()){
-				$fields->insertBefore($tab, 'Main'); 
+				$fields->insertBefore('Main', $tab); 
 			} else {
-				$fields->insertAfter($tab, 'Main'); 
+				$fields->insertAfter('Main', $tab); 
 			}
 			// END CUSTOMISATION
 			
