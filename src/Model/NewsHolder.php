@@ -82,7 +82,7 @@ class NewsHolder extends Page
 }
 
 
-class NewsHolder_Controller extends PageController
+class NewsHolderController extends PageController
 {
 
     private static $allowed_actions = array(
