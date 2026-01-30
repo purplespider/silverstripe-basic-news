@@ -13,14 +13,24 @@
 		"issues": "https://github.com/purplespider/silverstripe-basic-news/issues"
 	},
 	"require": {
-		"silverstripe/framework": "^5",
-		"silverstripe/cms": "^5",
-		"silverstripe/lumberjack": "^3"
+		"silverstripe/framework": "^6",
+		"silverstripe/cms": "^6",
+		"silverstripe/lumberjack": "^4"
 	},
 	"replace": {"silverstripe/basic-news": "*"},
 	"extra": {
       "expose": [
           "client/dist"
       ]
-  }
+  },
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true,
+			"silverstripe/vendor-plugin": true,
+			"silverstripe/recipe-plugin": true
+		}
+	},
+	"require-dev": {
+		"wernerkrauss/silverstripe-rector": "^1.2"
+	}
 }

@@ -13,8 +13,6 @@ use SilverStripe\ORM\FieldType\DBDate;
 use SilverStripe\Forms\DateField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use PurpleSpider\BasicNews\NewsHolder;
-use SilverStripe\Control\Director;
-use SilverStripe\View\Requirements;
 use PageController;
 
 

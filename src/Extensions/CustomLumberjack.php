@@ -6,7 +6,6 @@ use SilverStripe\Lumberjack\Model\Lumberjack;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\Tab;
-use SilverStripe\Dev\Debug;
 use SilverStripe\CMS\Model\SiteTree;
 
 class CustomLumberjack extends Lumberjack {
@@ -29,11 +28,11 @@ class CustomLumberjack extends Lumberjack {
 			);
 
 			$tab = new Tab('ChildPages', $this->getLumberjackTitle(), $gridField);
-			
+
 			// BEGIN CUSTOMISATION
-			
+
 			// $fields->insertAfter($tab, 'Main');
-			
+
 			if (SiteTree::get()->filter('ParentID',$this->owner->ID)->count()){
 				$fields->insertBefore('Main', $tab); 
 			} else {
