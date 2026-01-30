@@ -2,13 +2,10 @@
 
 namespace PurpleSpider\BasicNews;
 
+use SilverStripe\Model\List\PaginatedList;
 use Page;
 use PageController;
-use SilverStripe\Forms\Tab;
-use SilverStripe\Control\Director;
 use SilverStripe\Forms\FieldGroup;
-use SilverStripe\ORM\PaginatedList;
-use SilverStripe\View\Requirements;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Control\RSS\RSSFeed;
 use SilverStripe\Forms\CheckboxField;

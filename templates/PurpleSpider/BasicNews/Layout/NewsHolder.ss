@@ -13,7 +13,7 @@ $Content
 			<div class="hr"></div>
 			<% if AttachedImage && not Top.DisplayFullPosts %>
 				<a href="$Link">
-					<% loop AttachedImage.ScaleMaxWidth(150) %><img class="right" src="$URL" width="$Width" height="$Height" alt="$Title" /><% end_loop %>
+					<% with AttachedImage.ScaleMaxWidth(150) %><img class="right" src="$URL" width="$Width" height="$Height" alt="$Title" /><% end_with %>
 				</a>
 			<% end_if %>
 			<h2><a href="$Link">$Title</a></h2>
