@@ -24,6 +24,11 @@ class NewsHolder extends Page
         "PostsPerPage" => 10,
     ];
 
+    private static $scaffold_fields_ignore = [
+        'DisplayFullPosts',
+        'PostsPerPage',
+    ];
+
     public function getCMSFields()
     {
 
